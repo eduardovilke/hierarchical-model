@@ -1,0 +1,45 @@
+volumes:
+  node-modules:
+  pg-data:
+  pgadmin-data:
+
+services:
+  app:
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    user: root
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - node-modules:/app/node_modules
+      - ./:/app
+    command: yarn start:dev
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+      - pgadmin4
+
+  db:
+    image: postgres:latest
+    environment:
+      PGPORT: 5432
+      POSTGRES_DB: dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+  
+  pgadmin4:
+    image: elestio/pgadmin:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: zrp@zrp.com.br
+      PGADMIN_DEFAULT_PASSWORD: zrp@1234
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - pgadmin-data:/pgadmin4/servers.json
