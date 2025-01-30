@@ -1,16 +1,22 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Category {
   @PrimaryGeneratedColumn()
-  id: string
+  id: string;
 
   @Column()
-  name: string
+  name: string;
 
   @ManyToOne(() => Category, (category) => category.children)
-  parent?: Category
+  parent?: Category;
 
   @OneToMany(() => Category, (category) => category.parent)
-  children?: Category[]
+  children?: Category[];
 }

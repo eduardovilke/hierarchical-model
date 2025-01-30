@@ -16,7 +16,7 @@ import { CategoryModule } from './modules/categories/category.module';
       migrations: ['src/db/migrations/*.{t,j}s'],
       synchronize: true,
     }),
-    CategoryModule
+    CategoryModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}
