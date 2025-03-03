@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Category } from './modules/categories/category.entity';
-import { CategoryModule } from './modules/categories/category.module';
+import { ACategory } from './modules/categories/entities/a-category.entity';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { MCategory } from './modules/categories/entities/m-category.entity';
+import { NCategory } from './modules/categories/entities/n-category.entity';
+import { CCategory } from './modules/categories/entities/c-category.entity';
 
 @Module({
   imports: [
@@ -9,14 +13,17 @@ import { CategoryModule } from './modules/categories/category.module';
       type: 'postgres',
       host: 'db',
       port: 5432,
+      logger: 'advanced-console',
+      logging: 'all',
       username: 'postgres',
       password: 'postgres',
       database: 'dev',
-      entities: [Category],
+      entities: [ACategory, MCategory, NCategory, CCategory],
       migrations: ['src/db/migrations/*.{t,j}s'],
       synchronize: true,
+      namingStrategy: new SnakeNamingStrategy(),
     }),
-    CategoryModule,
+    CategoriesModule,
   ],
 })
 export class AppModule {}

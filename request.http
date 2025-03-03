@@ -1,7 +1,77 @@
-POST http://localhost:3000/categories
+# ADJACENCY
+POST http://localhost:3000/categories/adjacency
 content-type: application/json
 
 { 
-  "name": "teste",
-  "parent": "1"
+  "name": "Eletronicos"
 }
+
+###
+GET http://localhost:3000/categories
+content-type: application/json
+
+# MATERIALIZED PATH
+###
+POST http://localhost:3000/categories/m-path
+content-type: application/json
+
+{ 
+  "name": "Desktops",
+  "parentId": 15
+}
+
+###
+GET http://localhost:3000/categories/m-path
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/m-path/tree/17/ancestors
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/m-path/tree/14/descendants
+content-type: application/json
+
+# NESTED SET
+###
+POST http://localhost:3000/categories/nested-set
+content-type: application/json
+
+{ 
+  "name": "Desktop 4",
+  "parentId": 3
+}
+
+###
+GET http://localhost:3000/categories/nested-set
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/nested-set/tree/4/ancestors
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/nested-set/tree/1/descendants
+content-type: application/json
+
+#CLOSURE TABLE
+###
+POST http://localhost:3000/categories/closure-table
+content-type: application/json
+
+{ 
+  "name": "Computadores",
+  "parentId": 1
+}
+
+###
+GET http://localhost:3000/categories/closure-table
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/closure-table/tree/2/ancestors
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/closure-table/tree/1/descendants
+content-type: application/json
