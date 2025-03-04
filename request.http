@@ -3,11 +3,12 @@ POST http://localhost:3000/categories/adjacency
 content-type: application/json
 
 { 
-  "name": "Eletronicos"
+  "name": "Notebooks",
+  "parentId": 2
 }
 
 ###
-GET http://localhost:3000/categories
+GET http://localhost:3000/categories/adjacency
 content-type: application/json
 
 # MATERIALIZED PATH
@@ -38,8 +39,8 @@ POST http://localhost:3000/categories/nested-set
 content-type: application/json
 
 { 
-  "name": "Desktop 4",
-  "parentId": 3
+  "name": "Periféricos",
+  "parentId": 1
 }
 
 ###
