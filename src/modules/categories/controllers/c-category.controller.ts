@@ -2,9 +2,9 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateCategoryDTO } from '../create-category.dto';
 import { CCategoryService } from '../services/c-category.service';
 
-@Controller('categories/closure-table')
+@Controller('closure-table')
 export class CCategoryController {
-  constructor(private readonly categoryService: CCategoryService) {}
+  constructor(private readonly categoryService: CCategoryService) { }
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {

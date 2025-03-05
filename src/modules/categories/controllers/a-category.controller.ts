@@ -2,9 +2,9 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateCategoryDTO } from '../create-category.dto';
 import { ACategoryService } from '../services/a-category.service';
 
-@Controller('categories/adjacency')
+@Controller('adjacency')
 export class ACategoryController {
-  constructor(private readonly categoryService: ACategoryService) {}
+  constructor(private readonly categoryService: ACategoryService) { }
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {

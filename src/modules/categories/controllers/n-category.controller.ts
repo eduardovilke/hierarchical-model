@@ -2,9 +2,9 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateCategoryDTO } from '../create-category.dto';
 import { NCategoryService } from '../services/n-category.service';
 
-@Controller('categories/nested-set')
+@Controller('nested-set')
 export class NCategoryController {
-  constructor(private readonly categoryService: NCategoryService) {}
+  constructor(private readonly categoryService: NCategoryService) { }
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {

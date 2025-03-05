@@ -6,9 +6,16 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { MCategory } from './modules/categories/entities/m-category.entity';
 import { NCategory } from './modules/categories/entities/n-category.entity';
 import { CCategory } from './modules/categories/entities/c-category.entity';
+import { RouterModule } from '@nestjs/core';
 
 @Module({
   imports: [
+    RouterModule.register([
+      {
+        path: 'categories',
+        module: CategoriesModule,
+      },
+    ]),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'db',
@@ -26,4 +33,4 @@ import { CCategory } from './modules/categories/entities/c-category.entity';
     CategoriesModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }
