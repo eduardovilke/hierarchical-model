@@ -11,6 +11,18 @@ content-type: application/json
 GET http://localhost:3000/categories/adjacency
 content-type: application/json
 
+###
+GET http://localhost:3000/categories/adjacency/2
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/adjacency/tree/6/descendants
+content-type: application/json
+
+###
+GET http://localhost:3000/categories/adjacency/tree/5/ancestors
+content-type: application/json
+
 # MATERIALIZED PATH
 ###
 POST http://localhost:3000/categories/m-path

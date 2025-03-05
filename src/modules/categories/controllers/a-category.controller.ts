@@ -20,4 +20,14 @@ export class ACategoryController {
   getById(@Param('id') id: string) {
     return this.categoryService.getById(id);
   }
+
+  @Get('tree/:id/descendants')
+  getDescendantsById(@Param('id') id: string) {
+    return this.categoryService.getDescendantsById(id);
+  }
+
+  @Get('tree/:id/ancestors')
+  getAncestorsById(@Param('id') id: string) {
+    return this.categoryService.getAncestorsById(id);
+  }
 }
