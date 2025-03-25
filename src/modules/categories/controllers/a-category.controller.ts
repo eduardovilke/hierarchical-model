@@ -4,7 +4,7 @@ import { ACategoryService } from '../services/a-category.service';
 
 @Controller('adjacency')
 export class ACategoryController {
-  constructor(private readonly categoryService: ACategoryService) { }
+  constructor(private readonly categoryService: ACategoryService) {}
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {
@@ -21,13 +21,13 @@ export class ACategoryController {
     return this.categoryService.getById(id);
   }
 
-  @Get('tree/:id/descendants')
-  getDescendantsById(@Param('id') id: string) {
-    return this.categoryService.getDescendantsById(id);
-  }
-
   @Get('tree/:id/ancestors')
   getAncestorsById(@Param('id') id: string) {
     return this.categoryService.getAncestorsById(id);
+  }
+
+  @Get('tree/:id/descendants')
+  getDescendantsById(@Param('id') id: string) {
+    return this.categoryService.getDescendantsById(id);
   }
 }

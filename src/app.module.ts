@@ -33,4 +33,4 @@ import { RouterModule } from '@nestjs/core';
     CategoriesModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}

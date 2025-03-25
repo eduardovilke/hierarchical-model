@@ -4,7 +4,7 @@ import { MCategoryService } from '../services/m-category.service';
 
 @Controller('m-path')
 export class MCategoryController {
-  constructor(private readonly categoryService: MCategoryService) { }
+  constructor(private readonly categoryService: MCategoryService) {}
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {

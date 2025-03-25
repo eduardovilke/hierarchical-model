@@ -31,6 +31,8 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5438:5432
   
   pgadmin4:
     image: elestio/pgadmin:latest

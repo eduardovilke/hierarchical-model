@@ -10,8 +10,8 @@ export class ACategoryService {
     @InjectRepository(ACategory)
     private readonly categoryRepository: Repository<ACategory>,
     @InjectDataSource()
-    private readonly dataSource: DataSource
-  ) { }
+    private readonly dataSource: DataSource,
+  ) {}
 
   create(data: CreateCategoryDTO) {
     const category = this.categoryRepository.create(data);
@@ -46,7 +46,7 @@ export class ACategoryService {
       )
       SELECT * FROM category_tree
       `,
-      [id]
+      [id],
     );
   }
 
@@ -66,7 +66,7 @@ export class ACategoryService {
         )
       SELECT * FROM category_ancestors
       `,
-      [id]
+      [id],
     );
   }
 }

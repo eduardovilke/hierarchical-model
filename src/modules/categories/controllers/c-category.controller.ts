@@ -4,7 +4,7 @@ import { CCategoryService } from '../services/c-category.service';
 
 @Controller('closure-table')
 export class CCategoryController {
-  constructor(private readonly categoryService: CCategoryService) { }
+  constructor(private readonly categoryService: CCategoryService) {}
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {

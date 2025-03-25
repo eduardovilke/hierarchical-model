@@ -4,7 +4,7 @@ import { NCategoryService } from '../services/n-category.service';
 
 @Controller('nested-set')
 export class NCategoryController {
-  constructor(private readonly categoryService: NCategoryService) { }
+  constructor(private readonly categoryService: NCategoryService) {}
 
   @Post()
   create(@Body() data: CreateCategoryDTO) {

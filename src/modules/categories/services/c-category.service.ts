@@ -32,6 +32,8 @@ export class CCategoryService {
   async getAncestorsById(id: string) {
     const entity = await this.getById(id);
 
+    // .findAncestorsTree(entity, { depth: 2 });
+
     return this.categoryRepository.manager
       .getTreeRepository(CCategory)
       .findAncestorsTree(entity);
