@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller } from '@nestjs/common/decorators/core';
 import { CreateCategoryDTO } from '../create-category.dto';
 import { ACategoryService } from '../services/a-category.service';
+import { Body, Get, Param, Post } from '@nestjs/common/decorators/http';
 
 @Controller('adjacency')
 export class ACategoryController {

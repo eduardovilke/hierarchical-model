@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller } from '@nestjs/common/decorators/core';
 import { CreateCategoryDTO } from '../create-category.dto';
 import { CCategoryService } from '../services/c-category.service';
+import { Body, Get, Param, Post } from '@nestjs/common/decorators/http';
 
 @Controller('closure-table')
 export class CCategoryController {

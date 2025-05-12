@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { MCategory } from '../entities/m-category.entity';
 import { CreateCategoryDTO } from '../create-category.dto';
+import { Injectable } from '@nestjs/common/decorators/core';
 
 @Injectable()
 export class MCategoryService {
